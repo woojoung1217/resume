@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { profile } from './data';
 import './styles.css';
@@ -15,21 +15,6 @@ function useReveal() {
     nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, []);
-}
-
-function CursorGlow() {
-  const glow = useRef(null);
-  useEffect(() => {
-    const move = (event) => {
-      if (glow.current) {
-        glow.current.style.setProperty('--x', `${event.clientX}px`);
-        glow.current.style.setProperty('--y', `${event.clientY}px`);
-      }
-    };
-    window.addEventListener('pointermove', move, { passive: true });
-    return () => window.removeEventListener('pointermove', move);
-  }, []);
-  return <div className="cursor-glow" ref={glow} aria-hidden="true" />;
 }
 
 function Header() {
@@ -125,7 +110,7 @@ function Work() {
 function Skills() {
   return (
     <section className="skills" data-reveal>
-      <div className="marquee" aria-hidden="true"><div>PLAN · DEVELOP · OPERATE · PLAN · DEVELOP · OPERATE ·&nbsp;</div><div>PLAN · DEVELOP · OPERATE · PLAN · DEVELOP · OPERATE ·&nbsp;</div></div>
+      <div className="skills-statement" aria-hidden="true">Plan. Develop. Operate.</div>
       <div className="skills-inner"><div className="section-label"><span>04</span> 기술 스택</div><div className="skill-list">{profile.skills.map((skill) => <span key={skill}>{skill}</span>)}</div></div>
     </section>
   );
@@ -160,7 +145,7 @@ function Footer() {
 
 function App() {
   useReveal();
-  return <><CursorGlow /><Header /><main><Hero /><About /><Experience /><Work /><Skills /><More /></main><Footer /></>;
+  return <><Header /><main><Hero /><About /><Experience /><Work /><Skills /><More /></main><Footer /></>;
 }
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);
