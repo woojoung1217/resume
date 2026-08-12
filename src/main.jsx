@@ -1,89 +1,91 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { profile } from './data';
 import './styles.css';
 
-const Arrow = () => <span aria-hidden="true">↗</span>;
-
-function useReveal() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
-      { threshold: 0.12 },
-    );
-    const nodes = document.querySelectorAll('[data-reveal]');
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
-  }, []);
-}
+const SectionTitle = ({ number, children }) => (
+  <div className="section-title">
+    <span>{number}</span>
+    <h2>{children}</h2>
+  </div>
+);
 
 function Header() {
-  const [open, setOpen] = useState(false);
-  const close = () => setOpen(false);
   return (
-    <header className="header">
-      <a className="logo korean-logo" href="#top" aria-label="처음으로">윤우중 이력서<span>.</span></a>
-      <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="메뉴 열기">
-        <i /><i />
-      </button>
-      <nav className={open ? 'nav is-open' : 'nav'}>
-        <a href="#about" onClick={close}>소개</a>
-        <a href="#experience" onClick={close}>경력</a>
-        <a href="#work" onClick={close}>프로젝트</a>
-        <a href="#more" onClick={close}>활동</a>
-        <a href={`mailto:${profile.email}`} className="nav-contact">연락하기 <Arrow /></a>
+    <header className="site-header">
+      <a className="brand" href="#top">윤우중 이력서</a>
+      <nav aria-label="주요 메뉴">
+        <a href="#experience">경력</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#skills">기술</a>
+        <a href="#background">교육·수상</a>
       </nav>
+      <a className="header-email" href={`mailto:${profile.email}`}>이메일 보내기</a>
     </header>
   );
 }
 
-function Hero() {
+function ProfileHeader() {
   return (
-    <section className="hero" id="top">
-      <div className="hero-status"><span /> {profile.availability}</div>
-      <p className="eyebrow">{profile.role} · {profile.name}</p>
-      <h1>{profile.tagline}</h1>
-      <div className="hero-bottom">
-        <p>{profile.intro}</p>
-        <a href="#experience" className="circle-link" aria-label="경력 보기"><span>경력<br />살펴보기</span><b>↓</b></a>
+    <section className="profile-header" id="top">
+      <div className="profile-heading">
+        <p className="role">WEB DEVELOPER</p>
+        <h1>{profile.name}</h1>
+        <p className="headline">서비스의 흐름을 이해하고<br />끝까지 구현하는 웹 개발자</p>
       </div>
-      <div className="scroll-note">SCROLL TO EXPLORE</div>
+      <div className="profile-summary">
+        <div className="employment"><span /> 현재 twentyoz 웹개발팀 주임으로 재직 중</div>
+        <p>{profile.intro}</p>
+        <div className="contact-grid">
+          <div><span>전화</span><a href={`tel:${profile.phone}`}>{profile.phone}</a></div>
+          <div><span>이메일</span><a href={`mailto:${profile.email}`}>{profile.email}</a></div>
+          <div><span>거주지</span><strong>{profile.location}</strong></div>
+          <div><span>포트폴리오</span><a href={profile.portfolio} target="_blank" rel="noreferrer">Notion 포트폴리오 ↗</a></div>
+        </div>
+      </div>
     </section>
   );
 }
 
-function About() {
+function CareerSummary() {
   return (
-    <section className="section about" id="about" data-reveal>
-      <div className="section-label"><span>01</span> 소개</div>
-      <div className="about-content">
-        <h2>프론트부터 백엔드까지,<br />서비스 전체를 봅니다.</h2>
-        <div className="about-copy">
-          <p>화면 구현에 머무르지 않고 데이터, 서버, 배포와 운영까지 연결해 실제 문제를 해결하는 웹 개발자입니다.</p>
-          <dl>
-            <div><dt>Contact</dt><dd><a href={`tel:${profile.phone}`}>{profile.phone}</a><br /><a href={`mailto:${profile.email}`}>{profile.email}</a></dd></div>
-            <div><dt>Profile</dt><dd>{profile.birth}<br />{profile.location}</dd></div>
-          </dl>
-        </div>
-        <div className="metrics">
-          {profile.metrics.map((metric) => <div key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></div>)}
-        </div>
+    <section className="resume-section summary-section">
+      <SectionTitle number="01">핵심 역량</SectionTitle>
+      <div className="summary-content">
+        <p className="summary-lead">프론트엔드 구현에 한정하지 않고, 데이터 연동과 백엔드 기능 개발부터 운영 서버 배포까지 서비스 전반을 다룹니다.</p>
+        <ul className="strength-list">
+          <li><strong>제품 개발</strong><span>React, Vue, TypeScript 기반 웹 서비스 설계 및 구현</span></li>
+          <li><strong>데이터·서버</strong><span>NestJS, MySQL 기반 기능 개발과 API 연동</span></li>
+          <li><strong>운영 경험</strong><span>고객 요구사항 반영, 운영 환경 배포 및 장애 점검</span></li>
+          <li><strong>품질 개선</strong><span>웹 접근성, 상태 관리, 테스트와 공통 컴포넌트 개선</span></li>
+        </ul>
       </div>
-      <div className="facts">{profile.facts.map((fact) => <div key={fact.label}><span>{fact.label}</span><strong>{fact.value}</strong></div>)}</div>
     </section>
   );
 }
 
 function Experience() {
   return (
-    <section className="section experience" id="experience" data-reveal>
-      <div className="section-label"><span>02</span> 경력</div>
-      <div className="experience-list">
+    <section className="resume-section" id="experience">
+      <SectionTitle number="02">경력</SectionTitle>
+      <div className="career-list">
         {profile.experience.map((item) => (
-          <article key={`${item.company}-${item.period}`}>
-            <time>{item.period}</time>
-            <div><h3>{item.role} {item.current && <em>재직 중</em>}</h3><h4>{item.company}</h4><p className="job-summary">{item.summary}</p></div>
-            <div className="experience-detail"><ul className="bullet-list">{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul><ul className="tag-list">{item.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul></div>
+          <article className="career-item" key={`${item.company}-${item.period}`}>
+            <div className="career-meta">
+              <time>{item.period}</time>
+              {item.current && <span className="current-badge">재직 중</span>}
+            </div>
+            <div className="career-company">
+              <h3>{item.company}</h3>
+              <p>{item.role}</p>
+            </div>
+            <div className="career-detail">
+              <h4>{item.summary}</h4>
+              <ul>
+                {item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
+              <div className="tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+            </div>
           </article>
         ))}
       </div>
@@ -91,15 +93,20 @@ function Experience() {
   );
 }
 
-function Work() {
+function Projects() {
   return (
-    <section className="section work" id="work" data-reveal>
-      <div className="section-label"><span>03</span> 주요 프로젝트</div>
-      <div className="project-list">
+    <section className="resume-section" id="projects">
+      <SectionTitle number="03">주요 프로젝트</SectionTitle>
+      <div className="project-table">
         {profile.projects.map((project) => (
-          <article className="project" key={project.title}>
-            <div className={`project-visual ${project.accent}`}><span>{project.number}</span><div className="project-shape" /></div>
-            <div className="project-info"><div><p>{project.category}</p><h3>{project.title}</h3></div><p>{project.description}<small>{project.detail}</small></p></div>
+          <article className="project-row" key={project.title}>
+            <span className="project-number">{project.number}</span>
+            <div className="project-name">
+              <h3>{project.title}</h3>
+              <p>{project.category}</p>
+            </div>
+            <p className="project-description">{project.description}</p>
+            <p className="project-stack">{project.detail}</p>
           </article>
         ))}
       </div>
@@ -108,44 +115,85 @@ function Work() {
 }
 
 function Skills() {
+  const groups = [
+    { label: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'Next.js', 'HTML5', 'CSS'] },
+    { label: 'Backend & Data', items: ['NestJS', 'MySQL'] },
+    { label: 'Collaboration', items: ['Git', 'GitLab', 'Jira', 'Figma'] },
+  ];
+
   return (
-    <section className="skills" data-reveal>
-      <div className="skills-statement" aria-hidden="true">Plan. Develop. Operate.</div>
-      <div className="skills-inner"><div className="section-label"><span>04</span> 기술 스택</div><div className="skill-list">{profile.skills.map((skill) => <span key={skill}>{skill}</span>)}</div></div>
+    <section className="resume-section" id="skills">
+      <SectionTitle number="04">기술 스택</SectionTitle>
+      <div className="skill-groups">
+        {groups.map((group) => (
+          <div className="skill-group" key={group.label}>
+            <h3>{group.label}</h3>
+            <p>{group.items.join(' · ')}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
 
-function More() {
+function Background() {
   return (
-    <section className="section more" id="more" data-reveal>
-      <div className="section-label"><span>05</span> 활동 · 교육</div>
-      <div className="more-content">
-        <div className="timeline">
-          {profile.activities.map((item) => <article key={item.title}><time>{item.period}</time><div><h3>{item.title}</h3><p>{item.description}</p></div></article>)}
+    <section className="resume-section" id="background">
+      <SectionTitle number="05">교육 · 활동 · 수상</SectionTitle>
+      <div className="background-grid">
+        <div>
+          <h3 className="subsection-label">교육 및 활동</h3>
+          {profile.activities.map((item) => (
+            <article className="background-item" key={item.title}>
+              <time>{item.period}</time>
+              <div><h4>{item.title}</h4><p>{item.description}</p></div>
+            </article>
+          ))}
         </div>
-        <aside className="education-card"><span>학력</span><time>{profile.education.period}</time><h3>{profile.education.school}</h3><p>{profile.education.major}</p></aside>
+        <aside>
+          <div className="side-block">
+            <h3 className="subsection-label">학력</h3>
+            <time>{profile.education.period}</time>
+            <h4>{profile.education.school}</h4>
+            <p>{profile.education.major}</p>
+          </div>
+          <div className="side-block award-block">
+            <h3 className="subsection-label">수상</h3>
+            <time>{profile.award.year}</time>
+            <h4>{profile.award.title}</h4>
+            <p>{profile.award.event}</p>
+            <p>{profile.award.description}</p>
+          </div>
+        </aside>
       </div>
-      <div className="award-card"><span>{profile.award.year} AWARD</span><div><p>{profile.award.event}</p><h3>{profile.award.title}</h3></div><p>{profile.award.description}</p></div>
-      <div className="intro-card"><span>자기소개</span><h3>협업과 책임감을 바탕으로<br />성장하는 개발자</h3><p>{profile.introduction}</p></div>
+    </section>
+  );
+}
+
+function Introduction() {
+  return (
+    <section className="resume-section introduction">
+      <SectionTitle number="06">자기소개</SectionTitle>
+      <div>
+        <h3>협업과 책임감을 바탕으로 성장하는 개발자</h3>
+        <p>{profile.introduction}</p>
+      </div>
     </section>
   );
 }
 
 function Footer() {
   return (
-    <footer data-reveal>
-      <p className="eyebrow">웹 개발자 윤우중</p>
-      <h2>함께 만들<br />다음 서비스.</h2>
-      <a className="email-link" href={`mailto:${profile.email}`}>{profile.email} <Arrow /></a>
-      <div className="footer-bottom"><span>© {new Date().getFullYear()} {profile.name}</span><div>{profile.links.map((link) => <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer">{link.label}</a>)}</div><a href="#top">Back to top ↑</a></div>
+    <footer>
+      <div><strong>{profile.name}</strong><span>웹 개발자</span></div>
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <div className="footer-links">{profile.links.slice(0, 2).map((link) => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div>
     </footer>
   );
 }
 
 function App() {
-  useReveal();
-  return <><Header /><main><Hero /><About /><Experience /><Work /><Skills /><More /></main><Footer /></>;
+  return <><Header /><main><ProfileHeader /><CareerSummary /><Experience /><Projects /><Skills /><Background /><Introduction /></main><Footer /></>;
 }
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);
