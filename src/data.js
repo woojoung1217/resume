@@ -31,14 +31,15 @@ export const profile = {
       period: '2026. 03 — 재직 중',
       company: 'twentyoz (트웬티온즈)',
       role: '웹개발팀 · 주임 웹개발자',
-      summary: '태양광 EMS 솔루션 운영·구축 지원 및 사내 서비스 개발',
+      summary: '태양광 EMS 서비스 풀스택 개발 및 현장 엔지니어링',
       bullets: [
-        '태양광 EMS P&ID 계통도와 설비 모니터링 화면 작화 및 운영',
-        'InfoU 기반 태그 데이터 매핑·검증과 설비 데이터 구조 및 Modbus 태그 관리 지원',
+        '태양광 EMS 서비스의 프론트엔드 화면과 백엔드 기능을 함께 개발하고 운영',
+        'P&ID 계통도 및 설비 모니터링 화면 작화와 현장 구축 엔지니어링 수행',
+        'InfoU 기반 태그 데이터 매핑·검증, 설비 데이터 구조 및 Modbus 태그 관리',
         '사내 기술 블로그 Admin 기능 수정, 운영 화면 및 백엔드 개발',
         '고객 요구사항 반영과 운영 서버 배포·점검',
       ],
-      tags: ['Web Development', 'Backend', 'EMS', 'InfoU', 'Modbus'],
+      tags: ['Frontend', 'Backend', 'EMS', 'Engineering', 'InfoU', 'Modbus'],
       current: true,
     },
     {
@@ -58,6 +59,14 @@ export const profile = {
   projects: [
     {
       number: '01',
+      title: '태양광 EMS',
+      category: '에너지 관리 시스템 · twentyoz',
+      description: '태양광 발전 설비의 상태와 계통 흐름을 실시간으로 확인하고 운영할 수 있는 EMS 서비스입니다. 프론트엔드와 백엔드 개발을 모두 담당하며 P&ID 계통도 작화, 설비 데이터·Modbus 태그 연동, 현장 구축 엔지니어링과 운영 배포까지 수행하고 있습니다.',
+      detail: 'Frontend · Backend · InfoU · Modbus · Engineering',
+      accent: 'green',
+    },
+    {
+      number: '02',
       title: 'BAX',
       category: '웹 접근성 분석 SaaS · 포그리트',
       description: 'URL만 입력하면 WCAG 표준에 따라 접근성을 자동 진단하고 문제 지점을 캡처 화면과 코드 트리에서 확인하는 서비스입니다.',
@@ -65,7 +74,7 @@ export const profile = {
       accent: 'violet',
     },
     {
-      number: '02',
+      number: '03',
       title: 'Eagle M',
       category: '견적·결제 관리 CRM · 포그리트',
       description: '고객과 연락처, 견적, 결제 내역을 통합 관리하고 서비스별 산정 내역을 PDF 견적서로 생성하는 사내 시스템입니다.',
@@ -73,7 +82,7 @@ export const profile = {
       accent: 'orange',
     },
     {
-      number: '03',
+      number: '04',
       title: 'Beusable',
       category: 'UX 분석 SaaS · 포그리트',
       description: '클릭과 스크롤, 이동 경로 데이터를 분석해 히트맵과 사용자 여정 리포트를 제공하는 UX 분석 플랫폼입니다.',
@@ -81,7 +90,7 @@ export const profile = {
       accent: 'green',
     },
     {
-      number: '04',
+      number: '05',
       title: 'Studio Matching',
       category: '스튜디오 매칭 플랫폼 · 멋쟁이사자처럼',
       description: '취향에 맞는 스튜디오 검색부터 예약과 촬영 일정 관리까지 하나의 흐름으로 연결한 맞춤형 플랫폼입니다.',

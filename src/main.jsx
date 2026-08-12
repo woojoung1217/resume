@@ -54,9 +54,9 @@ function CareerSummary() {
       <div className="summary-content">
         <p className="summary-lead">프론트엔드 구현에 한정하지 않고, 데이터 연동과 백엔드 기능 개발부터 운영 서버 배포까지 서비스 전반을 다룹니다.</p>
         <ul className="strength-list">
-          <li><strong>제품 개발</strong><span>React, Vue, TypeScript 기반 웹 서비스 설계 및 구현</span></li>
-          <li><strong>데이터·서버</strong><span>NestJS, MySQL 기반 기능 개발과 API 연동</span></li>
-          <li><strong>운영 경험</strong><span>고객 요구사항 반영, 운영 환경 배포 및 장애 점검</span></li>
+          <li><strong>풀스택 개발</strong><span>웹 서비스의 프론트엔드와 백엔드 기능 설계 및 구현</span></li>
+          <li><strong>EMS</strong><span>태양광 설비 모니터링, 계통도 및 데이터 연동 개발</span></li>
+          <li><strong>엔지니어링</strong><span>설비 태그 구성, 현장 구축 지원과 운영 환경 배포·점검</span></li>
           <li><strong>품질 개선</strong><span>웹 접근성, 상태 관리, 테스트와 공통 컴포넌트 개선</span></li>
         </ul>
       </div>
