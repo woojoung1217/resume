@@ -118,6 +118,8 @@ function Skills() {
   const groups = [
     { label: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'Next.js', 'HTML5', 'CSS'] },
     { label: 'Backend & Data', items: ['NestJS', 'MySQL'] },
+    { label: 'EMS & Engineering', items: ['InfoU', 'Modbus', 'P&ID', 'Tag Mapping', 'Internal Network Deployment', 'System Monitoring'] },
+    { label: 'Web Platform', items: ['TanStack Query', 'Vue i18n', 'Canvas', 'Chart.js', 'html2pdf'] },
     { label: 'Collaboration', items: ['Git', 'GitLab', 'Jira', 'Figma'] },
   ];
 
