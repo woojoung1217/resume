@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { profile } from './data';
 import './styles.css';
 
+const profileImage = `${import.meta.env.BASE_URL}images/profile.jpg`;
+
 const SectionTitle = ({ number, children }) => (
   <div className="section-title">
     <span>{number}</span>
@@ -58,7 +60,7 @@ function ProfileHeader() {
         <div className="name-row">
           <h1>{profile.name}</h1>
           <div className="profile-photo-mobile">
-            <img src="/images/profile.jpg" alt="웹 개발자 윤우중 증명사진" />
+            <img src={profileImage} alt="웹 개발자 윤우중 증명사진" />
           </div>
         </div>
         <p className="headline">서비스의 흐름을 이해하고<br />끝까지 구현하는 웹 개발자</p>
@@ -70,7 +72,7 @@ function ProfileHeader() {
             <p>{profile.intro}</p>
           </div>
           <div className="profile-photo">
-            <img src="/images/profile.jpg" alt="웹 개발자 윤우중 증명사진" />
+            <img src={profileImage} alt="웹 개발자 윤우중 증명사진" />
           </div>
         </div>
         <div className="contact-grid">
