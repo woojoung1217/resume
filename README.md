@@ -1,4 +1,4 @@
-# Resume
+# Utils
 
 React와 Vite로 만든 개인 이력서 사이트입니다.
 
@@ -15,4 +15,4 @@ npm run dev
 
 GitHub 저장소의 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 설정하세요. 이후 `masterbranch` 또는 `main` 브랜치에 push하면 자동으로 배포됩니다.
 
-기본 주소는 `https://woojoung1217.github.io/resume/`입니다. 개인 도메인을 사용할 경우 GitHub Pages 설정에서 Custom domain을 입력하고, DNS에 안내된 레코드를 추가하면 됩니다.
+기본 주소는 `https://woojoung1217.github.io/utils/`입니다. 개인 도메인을 사용할 경우 GitHub Pages 설정에서 Custom domain을 입력하고, DNS에 안내된 레코드를 추가하면 됩니다.

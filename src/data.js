@@ -12,7 +12,7 @@ export const profile = {
   valuePoints: [
     { label: 'Development', value: 'Frontend · Backend' },
     { label: 'Domain', value: 'EMS · Web SaaS' },
-    { label: 'Delivery', value: '배포 · 운영 · 엔지니어링' },
+    { label: 'Delivery', value: 'Docker · 배포 · 운영' },
   ],
   portfolio: 'https://developing-cell-df2.notion.site/1a1047c27d53806a9919fddc2791366f',
   links: [
@@ -57,15 +57,17 @@ export const profile = {
             '단선결선도와 P&ID를 바탕으로 인버터·접속반·전력 계측 설비의 계통도 및 상세 화면 작화',
             'InfoU 태그를 화면 컴포넌트에 매핑하고 Modbus 주소·데이터 타입·스케일·읽기 값을 대조해 데이터 정확성 검증',
             '외부 인터넷 접속이 제한된 고객사 내부망 환경에서 서버와 클라이언트를 구성하고 운영 서비스 배포',
+            'Docker 기반으로 애플리케이션 이미지를 빌드·릴리즈하고 내부망 서버에 컨테이너 배포',
+            '배포 후 컨테이너 실행 상태와 로그, 환경 변수 및 서비스 포트를 확인해 구동 오류 점검',
             '내부망 IP·포트와 서버 프로세스, 클라이언트 접속, 설비 통신 및 실시간 데이터 수신 상태 점검',
             '화면 표시 값과 태그 목록, 실제 설비 데이터를 교차 검증하고 오표기·통신 누락·이상 데이터를 수정',
             '고객 요구사항과 현장 피드백을 기능 및 화면에 반영하고 배포 이후 안정화 지원',
           ],
           technicalNotes: [
             { label: '데이터 신뢰성', value: '태그 정의서·Modbus 정보·실제 수신 값·화면 표시 값을 교차 검증해 데이터 불일치 원인을 추적' },
-            { label: '제한 환경 배포', value: '외부 인터넷이 제한된 내부망에서 서버와 클라이언트, 네트워크 접속과 프로세스 구동 상태를 단계별 점검' },
+            { label: 'Docker 릴리즈', value: '애플리케이션 이미지를 빌드해 내부망 서버에 전달·배포하고 컨테이너 상태, 로그, 환경 변수와 포트를 단계별 점검' },
           ],
-          stack: ['React', 'TypeScript', 'NestJS', 'MySQL', 'InfoU', 'Modbus TCP', 'P&ID', 'Internal Network', 'Linux', 'GitLab'],
+          stack: ['React', 'TypeScript', 'NestJS', 'MySQL', 'Docker', 'InfoU', 'Modbus TCP', 'P&ID', 'Internal Network', 'Linux', 'GitLab'],
         },
         {
           title: 'Twentyoz Tech Blog',
@@ -78,14 +80,14 @@ export const profile = {
             '페이지별 메타데이터, Open Graph, 구조화 데이터, canonical·hreflang과 RSS를 적용해 검색 및 콘텐츠 공유 환경 구성',
             'Admin에서 게시글·카테고리·태그·작성자·이미지 업로드와 게시 상태를 관리하는 기능 개발',
             'NestJS와 Prisma 기반 콘텐츠 API 및 데이터 모델을 구성하고 프론트엔드와 연동',
-            '운영 도메인에 공개 웹과 Admin·API를 배포하고 환경 설정, 빌드 및 배포 후 기능·응답 상태 점검',
+            'Docker 기반 릴리즈를 통해 운영 도메인에 공개 웹과 Admin·API를 배포하고 환경 설정과 서비스 응답 상태 점검',
             '배포 이후 콘텐츠 노출, 이미지, 검색과 다국어 경로 등의 운영 이슈를 확인하고 지속적으로 개선',
           ],
           technicalNotes: [
             { label: '풀스택 구조', value: '공개 웹·Admin·API를 분리하고 React와 NestJS·Prisma 기반으로 콘텐츠 생성부터 노출까지의 흐름 구현' },
             { label: '검색·배포 품질', value: 'SSR 메타데이터, 구조화 데이터, RSS와 다국어 URL을 구성하고 운영 도메인 배포 후 응답과 노출 상태 검증' },
           ],
-          stack: ['React', 'TypeScript', 'TanStack Query', 'Ant Design', 'NestJS', 'Prisma', 'MySQL', 'SSR', 'SEO', 'RSS', 'GitLab'],
+          stack: ['React', 'TypeScript', 'TanStack Query', 'Ant Design', 'NestJS', 'Prisma', 'MySQL', 'Docker', 'SSR', 'SEO', 'RSS', 'GitLab'],
         },
       ],
       current: true,
@@ -178,7 +180,7 @@ export const profile = {
     school: '순천향대학교',
     major: '컴퓨터소프트웨어 · 4년제 졸업',
   },
-  skills: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'Next.js', 'NestJS', 'HTML5', 'CSS', 'MySQL', 'Git', 'GitLab'],
+  skills: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'Next.js', 'NestJS', 'HTML5', 'CSS', 'MySQL', 'Docker', 'Linux', 'Git', 'GitLab'],
   aiUsage: [
     {
       title: '기능 구현 및 문제 해결',
@@ -202,5 +204,5 @@ export const profile = {
     },
   ],
   introduction:
-    '저는 협업과 소통을 기반으로 성장하는 웹 개발자입니다. 의견이 다를 때 상대의 생각을 먼저 경청하고 논리적인 타협점을 찾아 문제를 해결합니다. 코드 리뷰와 문서화로 팀이 같은 방향을 바라보게 만들고, 맡은 작업의 일정과 품질을 끝까지 책임집니다. React와 TypeScript 기반 개발에 익숙하며 웹 표준과 접근성을 고려한 UI부터 백엔드 기능, 배포와 운영까지 서비스 전체 흐름을 이해하고자 합니다. AI 도구 역시 정답을 대신하는 수단이 아니라 요구사항 분석, 구현, 테스트와 문서화의 생산성을 높이는 개발 도구로 활용하며 결과를 직접 검증합니다. 단순히 작동하는 화면을 넘어 팀과 함께 성장하며 사용자에게 의미 있는 경험을 제공하는 개발자를 목표로 합니다.',
+    '저는 프론트엔드와 백엔드 개발, Docker 기반 릴리즈와 운영까지 서비스의 전체 흐름을 책임지는 웹 개발자입니다. 태양광 EMS를 개발하며 웹 화면과 API뿐 아니라 설비 데이터 연동, 내부망 배포와 현장 엔지니어링을 경험했고, 기업 기술 블로그와 SaaS 제품을 개발하며 사용자 경험과 운영 안정성을 함께 고민해 왔습니다. 개발 과정에서는 AI를 요구사항 분석, 구현 방향 탐색, 테스트 케이스 확장과 문서화에 적극 활용합니다. 다만 생성된 결과를 그대로 적용하지 않고 프로젝트 구조, 타입, 보안과 실제 실행 결과를 직접 검증하며 품질을 책임집니다. 특히 고객 데이터와 내부망 정보는 AI에 입력하지 않는 원칙을 지키고 있습니다. 빠르게 변화하는 기술을 목적에 맞게 선택하고, 팀과 맥락을 공유하며, 개발부터 배포 이후의 개선까지 끝까지 완수하는 개발자가 되겠습니다.',
 };

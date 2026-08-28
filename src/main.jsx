@@ -153,6 +153,7 @@ function Skills() {
   const groups = [
     { label: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'Vue.js', 'Next.js', 'HTML5', 'CSS'] },
     { label: 'Backend & Data', items: ['NestJS', 'MySQL'] },
+    { label: 'Release & Operations', items: ['Docker', 'Linux', 'Container Release', 'Environment Configuration', 'Log Monitoring', 'Internal Network Deployment'] },
     { label: 'EMS & Engineering', items: ['InfoU', 'Modbus', 'P&ID', 'Tag Mapping', 'Internal Network Deployment', 'System Monitoring'] },
     { label: 'Web Platform', items: ['TanStack Query', 'Vue i18n', 'Canvas', 'Chart.js', 'html2pdf'] },
     { label: 'AI & Productivity', items: ['GPT Integration', 'AI-assisted Development', 'Prompt Design', 'Result Validation'] },
@@ -227,7 +228,8 @@ function Introduction() {
     <section className="resume-section introduction">
       <SectionTitle number="06">자기소개</SectionTitle>
       <div>
-        <h3>협업과 책임감을 바탕으로 성장하는 개발자</h3>
+        <p className="intro-kicker">AI-ASSISTED · FULL-CYCLE DEVELOPMENT</p>
+        <h3>AI를 활용해 더 빠르게 실행하고,<br />검증과 결과에는 직접 책임집니다.</h3>
         <p>{profile.introduction}</p>
       </div>
     </section>
