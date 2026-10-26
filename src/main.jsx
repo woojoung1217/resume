@@ -28,11 +28,11 @@ function Profile() {
   return <section className="profile" id="top" aria-labelledby="profile-name">
     <div className="profile-text">
       <p className="profile-role">{profile.role}</p>
-      <h1 id="profile-name">{profile.name}</h1>
+      <div className="profile-name-row"><h1 id="profile-name">{profile.name}</h1><span className="profile-current">twentyoz 재직 중</span></div>
       <div className="profile-description"><p>{profile.intro}</p><p>{profile.introDetail}</p></div>
       <div className="contact-details"><EmailContact /><div><a href={'tel:' + profile.phone}>{profile.phone}</a><span>{profile.location}</span></div><div><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={profile.portfolio} target="_blank" rel="noreferrer">포트폴리오</a></div></div>
     </div>
-    <img className="profile-photo" src={photo} alt="윤우중 프로필 사진" width="144" height="192" fetchPriority="high" />
+    <img className="profile-photo" src={photo} alt="윤우중 프로필 사진" width="928" height="1236" fetchPriority="high" />
   </section>;
 }
 
@@ -40,17 +40,15 @@ function SectionHeading({ title }) {
   return <div className="section-heading"><h2>{title}</h2></div>;
 }
 function Stack({ items }) {
-  return <p className="stack"><span>사용 기술</span>{items.join(', ')}</p>;
+  return <div className="stack"><span>사용 기술</span><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></div>;
 }
 function Bullets({ items }) {
   return <ul className="bullets">{items.map((text) => <li key={text}>{text}</li>)}</ul>;
 }
 function ProjectCase({ project }) {
   return <article className="project-case">
-    <div className="project-title-row"><h4>{project.title}</h4>{project.url && <a className="project-link" href={project.url} target="_blank" rel="noreferrer">사이트 방문 ↗</a>}</div>
-    <p className="project-overview">{project.overview}</p>
-    <Bullets items={project.contributions} />
-    <Stack items={project.stack} />
+    <div className="project-heading"><h4>{project.title}</h4><p>{project.scope}</p>{project.url && <a className="project-link" href={project.url} target="_blank" rel="noreferrer">사이트 방문 ↗</a>}</div>
+    <div className="project-content"><p className="project-overview">{project.overview}</p><Bullets items={project.contributions} /><Stack items={project.stack} /></div>
   </article>;
 }
 function Experience() {

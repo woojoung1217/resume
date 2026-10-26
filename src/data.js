@@ -1,8 +1,8 @@
 export const profile = {
   name: '윤우중',
   role: '소프트웨어 개발자',
-  intro: '트웬티온스에서 기업 기술 블로그와 EMS를 개발하고, 세기몰 운영 업무를 맡고 있습니다. TypeScript와 NestJS로 API를 만들고, 화면·데이터를 연결해 배포하는 일을 합니다.',
-  introDetail: '이전에는 포그리트에서 웹 접근성 분석 서비스와 사내 CRM을 개발했습니다. 기능을 만드는 것뿐 아니라 운영 중 생기는 오류를 찾고 고치는 일도 함께 해왔습니다.',
+  intro: '요구사항을 구현하기 전에, 사용자가 겪는 문제와 기존 코드의 흐름부터 살펴봅니다. 화면에서 시작한 문제도 API와 데이터, 실행 환경까지 따라가며 원인을 찾습니다.',
+  introDetail: '화면 개발로 시작해 백엔드와 배포까지 맡는 범위를 넓혀왔습니다. AI 도구로 구현과 검증 속도를 높이되, 기술을 선택한 이유와 작성한 코드는 직접 설명할 수 있도록 합니다.',
   email: 'ywj98121791@gmail.com',
   phone: '010-4163-7540',
   location: '경기도 화성시 동탄구',
@@ -12,21 +12,8 @@ export const profile = {
     {
       id: 'twentyoz', company: 'twentyoz', koreanName: '트웬티온스', period: '2026. 03 — 현재', current: true,
       role: '웹개발팀 · 주임 웹개발자',
-      summary: '공개 웹·관리자 페이지·API 개발, 배포 및 운영 유지보수',
+      summary: 'EMS 개발·데이터 연동·내부망 배포, 이커머스 운영 유지보수',
       projects: [
-        {
-          title: 'Twentyoz Tech Blog', category: '콘텐츠 플랫폼', scope: '공개 웹 · Admin · API · 배포', url: 'https://blog.twentyoz.app/',
-          overview: '사내 기술 아티클과 세션을 발행하는 블로그입니다. 공개 사이트와 관리자 페이지, 백엔드를 개발하고 배포했습니다.',
-          challenge: '콘텐츠 관리와 공개 웹을 연결하고, 검색 엔진·다국어 환경에서도 게시물이 일관되게 노출되어야 했습니다.',
-          contributions: [
-            '게시글 목록·상세·검색 화면과 관리자 페이지의 글 작성, 카테고리·태그·작성자 관리, 이미지 업로드 기능을 만들었습니다.',
-            'NestJS와 Prisma로 콘텐츠 API와 데이터 모델을 구성하고 공개 사이트와 관리자 페이지에 연결했습니다.',
-            '한국어·영어 경로, 메타 태그, Open Graph, 구조화 데이터와 RSS를 적용했습니다.',
-            'Docker로 웹·관리자·API를 배포하고, 게시글과 이미지 노출·검색 오류를 확인하며 유지보수했습니다.',
-          ],
-          result: '콘텐츠 작성·게시·검색·열람이 연결된 서비스를 운영 도메인에 배포하고 유지보수.',
-          stack: ['TypeScript', 'React', 'NestJS', 'Prisma', 'MySQL', 'Docker', 'TanStack Query', 'SSR / SEO'],
-        },
         {
           title: '영암 태양광·ESS EMS', category: '산업용 소프트웨어', scope: '데이터 연동 · 시각화 · 배포 구성',
           overview: '발전 설비와 ESS의 전력·충방전·운전 상태를 모니터링하는 시스템의 고도화 프로젝트입니다.',
@@ -61,6 +48,19 @@ export const profile = {
           ],
           result: '기존 구매 흐름을 고려하며 신규 요구사항과 운영 중 발생하는 UI 문제를 지속 개선.',
           stack: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Swiper', 'GitLab'],
+        },
+        {
+          title: 'Twentyoz Tech Blog', category: '콘텐츠 플랫폼', scope: '공개 웹 · Admin · API · 배포', url: 'https://blog.twentyoz.app/',
+          overview: '사내 기술 아티클과 세션을 발행하는 블로그입니다. 공개 사이트와 관리자 페이지, 백엔드를 개발하고 배포했습니다.',
+          challenge: '콘텐츠 관리와 공개 웹을 연결하고, 검색 엔진·다국어 환경에서도 게시물이 일관되게 노출되어야 했습니다.',
+          contributions: [
+            '게시글 목록·상세·검색 화면과 관리자 페이지의 글 작성, 카테고리·태그·작성자 관리, 이미지 업로드 기능을 만들었습니다.',
+            'NestJS와 Prisma로 콘텐츠 API와 데이터 모델을 구성하고 공개 사이트와 관리자 페이지에 연결했습니다.',
+            '한국어·영어 경로, 메타 태그, Open Graph, 구조화 데이터와 RSS를 적용했습니다.',
+            'Docker로 웹·관리자·API를 배포하고, 게시글과 이미지 노출·검색 오류를 확인하며 유지보수했습니다.',
+          ],
+          result: '콘텐츠 작성·게시·검색·열람이 연결된 서비스를 운영 도메인에 배포하고 유지보수.',
+          stack: ['TypeScript', 'React', 'NestJS', 'Prisma', 'MySQL', 'Docker', 'TanStack Query', 'SSR / SEO'],
         },
       ],
     },
