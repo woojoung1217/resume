@@ -21,18 +21,18 @@ function EmailContact() {
 }
 
 function Header() {
-  return <header className="site-header"><a href="#top">윤우중 이력서</a><button type="button" onClick={() => window.print()}>인쇄 / PDF 저장</button></header>;
+  return <header className="site-header"><div className="header-identity"><a href="#top">윤우중<span> / 이력서</span></a><time dateTime={profile.updatedAt}>{profile.updatedAt.replaceAll('-', '. ')} 기준</time></div><button type="button" onClick={() => window.print()}><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5" /></svg>PDF 저장</button></header>;
 }
 
 function Profile() {
   return <section className="profile" id="top" aria-labelledby="profile-name">
+    <img className="profile-photo" src={photo} alt="윤우중 프로필 사진" width="928" height="1236" fetchPriority="high" />
     <div className="profile-text">
       <p className="profile-role">{profile.role}</p>
       <div className="profile-name-row"><h1 id="profile-name">{profile.name}</h1><span className="profile-current">twentyoz 재직 중</span></div>
       <div className="profile-description"><p>{profile.intro}</p><p>{profile.introDetail}</p></div>
-      <div className="contact-details"><EmailContact /><div><a href={'tel:' + profile.phone}>{profile.phone}</a><span>{profile.location}</span></div><div><a href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a href={profile.portfolio} target="_blank" rel="noreferrer">포트폴리오</a></div></div>
     </div>
-    <img className="profile-photo" src={photo} alt="윤우중 프로필 사진" width="928" height="1236" fetchPriority="high" />
+    <address className="contact-details"><span className="contact-label">연락처</span><EmailContact /><a href={'tel:' + profile.phone}>{profile.phone}</a><span>{profile.location}</span><div className="profile-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={profile.portfolio} target="_blank" rel="noreferrer">포트폴리오 ↗</a></div></address>
   </section>;
 }
 
@@ -48,7 +48,7 @@ function Bullets({ items }) {
 function ProjectCase({ project }) {
   return <article className="project-case">
     <div className="project-heading"><h4>{project.title}</h4><p>{project.scope}</p>{project.url && <a className="project-link" href={project.url} target="_blank" rel="noreferrer">사이트 방문 ↗</a>}</div>
-    <div className="project-content"><p className="project-overview">{project.overview}</p><Bullets items={project.contributions} /><Stack items={project.stack} /></div>
+    <div className="project-content"><p className="project-overview">{project.overview}</p><Bullets items={project.contributions} />{project.evidence && <p className="project-note"><span>검증</span>{project.evidence}</p>}{project.deliveryNote && <p className="project-note"><span>진행 상태</span>{project.deliveryNote}</p>}<Stack items={project.stack} /></div>
   </article>;
 }
 function Experience() {
